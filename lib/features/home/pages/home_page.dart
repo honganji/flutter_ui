@@ -1,23 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ui_app/features/home/components/list_element.dart';
 import 'package:ui_app/features/home/components/my_list_tile.dart';
+import 'package:ui_app/features/page_list.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
-
-  final List<ListElement> listElements = [
-    ListElement(
-      pageName: "page with parameters",
-      path: Uri(
-        path: "/animation/3",
-        queryParameters: {"name": "John"},
-      ).toString(),
-    ),
-    ListElement(
-      pageName: "Bottom Nav Bar",
-      path: "/page1",
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +15,9 @@ class HomePage extends StatelessWidget {
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: listElements.length,
+              itemCount: pageLists.length,
               itemBuilder: (context, index) {
-                return MyListTile(listElement: listElements[index]);
+                return MyListTile(listElement: pageLists[index]);
               },
             ),
           ),
